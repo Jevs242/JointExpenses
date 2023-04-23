@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Split;
+namespace JointExpenses;
 
 [Application]
 public class MainApplication : MauiApplication

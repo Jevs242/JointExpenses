@@ -1,4 +1,4 @@
-﻿namespace Split;
+﻿namespace JointExpenses;
 
 public partial class AppShell : Shell
 {

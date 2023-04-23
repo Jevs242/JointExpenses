@@ -6,16 +6,16 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>Split</RootNamespace>
+		<RootNamespace>JointExpenses</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Split</ApplicationTitle>
+		<ApplicationTitle>JointExpenses</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.split</ApplicationId>
+		<ApplicationId>com.companyname.jointexpenses</ApplicationId>
 		<ApplicationIdGuid>8416dc98-794c-4ce0-af40-c49634400990</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -28,11 +28,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<PackageCertificateThumbprint>3ACC041AA79C69B962E99BF1E414270AF02B205E</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg"  />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -46,6 +48,24 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\$placeholder$.altform-lightunplated_targetsize-16.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-lightunplated_targetsize-24.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-lightunplated_targetsize-256.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-lightunplated_targetsize-32.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-lightunplated_targetsize-48.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-unplated_targetsize-16.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-unplated_targetsize-24.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-unplated_targetsize-256.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-unplated_targetsize-32.png" />
+	  <None Remove="Resources\Images\$placeholder$.altform-unplated_targetsize-48.png" />
+	  <None Remove="Resources\Images\$placeholder$.targetsize-16.png" />
+	  <None Remove="Resources\Images\$placeholder$.targetsize-24.png" />
+	  <None Remove="Resources\Images\$placeholder$.targetsize-256.png" />
+	  <None Remove="Resources\Images\$placeholder$.targetsize-32.png" />
+	  <None Remove="Resources\Images\$placeholder$.targetsize-48.png" />
 	</ItemGroup>
 
 	<ItemGroup>

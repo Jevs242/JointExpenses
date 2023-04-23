@@ -1,13 +1,9 @@
-﻿//SplitWise
-
-namespace Split;
+﻿
+namespace JointExpenses;
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Graphics.Text;
 using System.Diagnostics;
-
-using System.Runtime.InteropServices;
 
 public partial class MainPage : ContentPage
 {
@@ -18,13 +14,6 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-    }
-
-
-    async void hi()
-    {
-        bool answer = await DisplayAlert("Total", $"{total}", "Yes", "No");
-        Debug.WriteLine("Answer: " + answer);
     }
 
     public void UpdateUI()

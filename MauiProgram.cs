@@ -1,5 +1,5 @@
 ﻿
-namespace Split;
+namespace JointExpenses;
 
 public static class MauiProgram
 {

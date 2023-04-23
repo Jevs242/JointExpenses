@@ -1,4 +1,4 @@
-﻿namespace Split;
+﻿namespace JointExpenses;
 
 public partial class App : Application
 {
@@ -7,5 +7,6 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new NavigationPage(new MainPage());
+
 	}
 }

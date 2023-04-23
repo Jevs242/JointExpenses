@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Split;
+namespace JointExpenses;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

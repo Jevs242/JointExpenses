@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Split;
+namespace JointExpenses;
 
 public class Program
 {
