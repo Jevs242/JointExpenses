@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Split.MainPage"
+             BackgroundColor="#0d1b2a">
+    
+    <ContentPage.Resources>
+        <Color x:Key="totalbg">#415a77</Color>
+        <Color x:Key="totalbgfont">#BFA2DB</Color>
+        <Color x:Key="totaltext">#778da9</Color>
+        <Color x:Key="everytext">#d6d6d6</Color>
+        <Color x:Key="bg">#444444</Color>
+        <Color x:Key="border">#323232</Color>
+        <Color x:Key="borderframe">#000000</Color>
+    </ContentPage.Resources>
+
+    <Frame BackgroundColor="{StaticResource bg}">
+
+        <Frame BackgroundColor="Black" BorderColor="Black" Padding="10" MaximumWidthRequest="750">
+            <Grid RowDefinitions="25*, 30* ,0* ,30* , 15*"  BackgroundColor="{StaticResource bg}">
+
+
+                <Frame Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource border}" Margin="10" BorderColor="{StaticResource borderframe}">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Total" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}" FontSize="Title"></Label>
+                        <Label x:Name="totalLabel" Text="$00.00" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}" FontSize="Large"></Label>
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                            <Label x:Name="tipTotal" Text="Tip : $00.00" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}" FontSize="Small"></Label>
+                            <Label x:Name="personAmount" Text="People : 2" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}" FontSize="Small"></Label>
+                            <Label x:Name="taxTotal" Text="Tax : $00.00" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}" FontSize="Small"></Label>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <HorizontalStackLayout Grid.Row ="1" HorizontalOptions="Center" Spacing="10">
+                    <VerticalStackLayout  HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0, 20 , 0 , 0" >
+                        <Label Text="Both" TextColor="{StaticResource everytext}" FontSize="Large"  HorizontalOptions="Center"></Label>
+                        <Frame BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}" Margin="0 , 10" HeightRequest="150" WidthRequest="175" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ScrollView VerticalScrollBarVisibility="Always" HorizontalOptions="Fill">
+                                <StackLayout x:Name="bothScroll" HorizontalOptions="Fill">
+                            
+                                </StackLayout>
+                            </ScrollView>
+                        </Frame>
+                    </VerticalStackLayout>
+            
+                    <VerticalStackLayout Grid.Row ="2" HorizontalOptions="Center" VerticalOptions="Fill" Margin="0, 20 , 0 , 0">
+                        <Label Text="Own" TextColor="{StaticResource everytext}" FontSize="Large" HorizontalOptions="Center"></Label>
+                        <Frame BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}" Margin="0 , 10" HeightRequest="150"  WidthRequest="175" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ScrollView VerticalScrollBarVisibility="Always" HorizontalOptions="Fill" > 
+                                <StackLayout x:Name="ownScroll" HorizontalOptions="Fill">
+
+                                </StackLayout>
+                            </ScrollView>
+                        </Frame>
+                    </VerticalStackLayout>
+                    
+                </HorizontalStackLayout>
+                
+            
+                <VerticalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center">
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <HorizontalStackLayout HorizontalOptions="Start" Margin="0,0,10,0">
+                            <Label Text="Tip : " TextColor="{StaticResource everytext}" FontSize="Medium" VerticalOptions="Center" Margin="0 , 15, 5,0"></Label>
+                            <Frame Padding="0, 0, 0,0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}">
+                                <Entry x:Name="entryTip" Placeholder="$" WidthRequest="100" BackgroundColor="{StaticResource border}" TextChanged="Entry_PropertyChanged" TextColor="{StaticResource everytext}"></Entry>
+                            </Frame>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="End">
+                            <Label Text="Person : " TextColor="{StaticResource everytext}" FontSize="Medium" VerticalOptions="Center" Margin="0 , 15, 5,0"></Label>
+                            <Frame Padding="0, 0, 0,0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}">
+                                <Entry x:Name="entryPerson" Placeholder="#" WidthRequest="100" BackgroundColor="{StaticResource border}" TextChanged="Entry_PropertyChanged" TextColor="{StaticResource everytext}"></Entry>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </HorizontalStackLayout>
+                    <Label Text="Choose a way to calculate tax" HorizontalOptions="Center" Margin=" 30, 10, 10, 10" FontSize="Small" TextColor="{StaticResource everytext}"></Label>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <RadioButton x:Name="taxTotalRadio" Content="Tax Total" IsChecked="True" TextColor="{StaticResource everytext}"></RadioButton>
+                        <RadioButton x:Name="taxRateRadio" Content="Tax Rate" TextColor="{StaticResource everytext}"></RadioButton>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <HorizontalStackLayout HorizontalOptions="Start" Margin="0,0,5,0">
+                            <Label Text="Tax : " TextColor="{StaticResource everytext}" FontSize="Medium" VerticalOptions="Center" Margin="0 , 15, 5,0"></Label>
+                            <Frame Padding="0, 0, 0,0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}" >
+                                <Entry x:Name="entryTax" Placeholder="$" WidthRequest="100" BackgroundColor="{StaticResource border}" TextChanged="Entry_PropertyChanged"  TextColor="{StaticResource everytext}"></Entry>
+                            </Frame>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="End">
+                            <Label Text="Tax Rate : " TextColor="{StaticResource everytext}" FontSize="Medium" VerticalOptions="Center" Margin="0 , 15, 5,0"></Label>
+                            <Frame Padding="0, 0, 0,0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}">
+                                <Entry x:Name="entryTaxRate" Placeholder="%" WidthRequest="100" BackgroundColor="{StaticResource border}" TextChanged="Entry_PropertyChanged" TextColor="{StaticResource everytext}"></Entry>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center" Spacing="20">
+                    <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Add" FontSize="Large" Margin="0 , 0 , 0 , 30" TextColor="{StaticResource everytext}" Clicked="AddButton_Clicked" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}"></Button>
+                    <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Calculate" FontSize="Large" Margin="0 , 0 , 0 , 30" TextColor="{StaticResource everytext}" Clicked="Button_Clicked" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}" ></Button>
+                </HorizontalStackLayout>
+        
+            </Grid>
+        </Frame>
+    </Frame>
+    
+</ContentPage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Split.AddBill"
+             Title="Add Bill" 
+             BackgroundColor="#13315c">
+
+    <ContentPage.Resources>
+        <Color x:Key="totalbg">#415a77</Color>
+        <Color x:Key="totalbgfont">#BFA2DB</Color>
+        <Color x:Key="totaltext">#778da9</Color>
+        <Color x:Key="everytext">#d6d6d6</Color>
+        <Color x:Key="bg">#444444</Color>
+        <Color x:Key="border">#323232</Color>
+        <Color x:Key="borderframe">#000000</Color>
+    </ContentPage.Resources>
+
+
+    <Frame BackgroundColor="{StaticResource bg}" BorderColor="{StaticResource border}">
+        <Frame MaximumWidthRequest="750" BorderColor="{StaticResource bg}" BackgroundColor="{StaticResource Black}" Padding="10">
+            <Grid RowDefinitions=" 25* , 25* ,25* , 25* " BackgroundColor="{StaticResource bg}">
+
+                <Frame BackgroundColor="{StaticResource border}"  Margin="10" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" BorderColor="{StaticResource borderframe}" Padding="10">
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Label Text="The cost of the product/service" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource totalbgfont}"></Label>
+                        <Label Text="Select if your product is from both or you own" HorizontalOptions="Center" TextColor="{StaticResource totalbgfont}"></Label>
+                    </VerticalStackLayout>
+                </Frame>
+                <VerticalStackLayout Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" Spacing="20">
+                    <Label Text="How much the product/services?" FontSize="Medium" HorizontalOptions="Center" Margin="0 , 100, 0 , 0" TextColor="{StaticResource everytext}"></Label>
+                    <Frame Padding="0, 0, 0,0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}">
+                        <Entry  x:Name="priceEntry" Placeholder="$" WidthRequest="200"  HorizontalOptions="Center" Keyboard="Numeric" TextChanged="Entry_PropertyChanged" TextColor="{StaticResource everytext}"  BackgroundColor="{StaticResource border}"></Entry>
+                    </Frame>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="2">
+                    <Label Text="How much the product/services?" FontSize="Medium" HorizontalOptions="Center" Margin="0 , 100, 0 , 0" TextColor="{StaticResource everytext}"></Label>
+                    <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <RadioButton x:Name="bothRadio" Content="Both" FontSize="Medium" TextColor="{StaticResource everytext}"></RadioButton>
+                        <RadioButton x:Name="ownRadio" Content="Own" FontSize="Medium" TextColor="{StaticResource everytext}"></RadioButton>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+                <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                    <Button Text="Add" Pressed="ButtonAdd_Pressed" FontSize="Medium" TextColor="{StaticResource everytext}" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}"></Button>
+                    <Button Text="Cancel" Pressed="ButtonCancel_Pressed" FontSize="Medium"  TextColor="{StaticResource everytext}" BackgroundColor="{StaticResource border}" BorderColor="{StaticResource borderframe}"></Button>
+                </HorizontalStackLayout>
+            </Grid>
+            
+        </Frame>
+
+    </Frame>
+</ContentPage>

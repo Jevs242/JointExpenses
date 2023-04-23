@@ -1,9 +1,12 @@
-﻿namespace Split;
+﻿//SplitWise
+
+namespace Split;
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Graphics.Text;
 using System.Diagnostics;
+
 using System.Runtime.InteropServices;
 
 public partial class MainPage : ContentPage
@@ -46,8 +49,8 @@ public partial class MainPage : ContentPage
         for (int i = 0; i < billList.Bill.Count; i++)
         {
             Bill bill = billList.Bill[i];
-            var num = new Label { Text = $"{i + 1}", FontSize = 20, TextColor = Color.FromRgb(224, 225, 221), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
-            var label = new Label { Text = $"${bill.Cost}", FontSize = 20, TextColor = Color.FromRgb(224, 225, 221), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+            var num = new Label { Text = $"{i + 1}", TextColor = Color.FromRgb(224, 225, 221), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+            var label = new Label { Text = $"${bill.Cost.ToString("0,0.00")}" ,TextColor = Color.FromRgb(224, 225, 221), HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
             var button = new Button { Text = "x", HorizontalOptions = LayoutOptions.End, BackgroundColor = Color.FromRgb(224, 225, 221) };
             button.Clicked += RemoveButton_Clicked;
             var grid = new Grid();
@@ -62,11 +65,11 @@ public partial class MainPage : ContentPage
 
             if (bill.IsBoth)
             {
-                bothScroll.Children.Add(new Frame { Content = grid, BackgroundColor = Color.FromRgb(19, 49, 92), Padding = 1, HorizontalOptions = LayoutOptions.Fill, BorderColor = Color.FromRgb(19, 49, 92) });
+                bothScroll.Children.Add(new Frame { Content = grid, BackgroundColor = Color.FromRgb(50, 50, 50), Padding = 1, HorizontalOptions = LayoutOptions.Fill, BorderColor = Color.FromRgb(0, 0, 0) });
             }
             else
             {
-                ownScroll.Children.Add(new Frame { Content = grid, BackgroundColor = Color.FromRgb(19, 49, 92), Padding = 1, BorderColor = Color.FromRgb(19, 49, 92) });
+                ownScroll.Children.Add(new Frame { Content = grid, BackgroundColor = Color.FromRgb(50, 50, 50), Padding = 1, BorderColor = Color.FromRgb(0, 0, 0) });
             }
         }
     }
@@ -88,8 +91,8 @@ public partial class MainPage : ContentPage
         {
             decimal totalTax = calculate.TotalTax / calculate.TotalPerson;
             total += totalTax;
-            var tipLabel = this.FindByName<Label>("tipTotal");
-            tipLabel.Text = "Tip : $" + totalTax.ToString("0.00");
+            var tipLabel = this.FindByName<Label>("taxTotal");
+            tipLabel.Text = "Tax : $" + totalTax.ToString("0,0.00");
         }
         else
         {
@@ -98,7 +101,7 @@ public partial class MainPage : ContentPage
             total += totalTax;
 
             var taxLabel = this.FindByName<Label>("taxTotal");
-            taxLabel.Text = "Tax : $" + totalTax.ToString("0.00");
+            taxLabel.Text = "Tax : $" + totalTax.ToString("0,0.00");
         }
 
         if (total != 0)
@@ -106,11 +109,11 @@ public partial class MainPage : ContentPage
             decimal tipTotal = calculate.Tip / (decimal)calculate.TotalPerson;
             total += tipTotal;
             var tipLabel = this.FindByName<Label>("tipTotal");
-            tipLabel.Text = "Tip : $" + (calculate.Tip / calculate.TotalPerson).ToString("0.00");
+            tipLabel.Text = "Tip : $" + (calculate.Tip / calculate.TotalPerson).ToString("0,0.00");
         }
 
         var totalLabel = this.FindByName<Label>("totalLabel");
-        totalLabel.Text = "$" + total.ToString("0.00");
+        totalLabel.Text = "$" + total.ToString("0,0.00");
     }
 
     private void AddButton_Clicked(object sender, EventArgs e)

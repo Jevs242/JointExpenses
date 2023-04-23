@@ -53,7 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AddBill.xaml">
+	  <MauiXaml Update="MVVM\Views\AddBill.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
