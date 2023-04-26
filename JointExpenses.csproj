@@ -30,8 +30,18 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<PackageCertificateThumbprint>3ACC041AA79C69B962E99BF1E414270AF02B205E</PackageCertificateThumbprint>
 		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		
+		
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>..\key.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>JointExpenses</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>jointexpenses</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>jointexpenses</AndroidSigningStorePass>
+	</PropertyGroup>
+	
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg"  />
